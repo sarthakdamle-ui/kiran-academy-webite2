@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kiran Academy Student Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= LOGIN PAGE ================= -->
+
+    <div id="loginPage" class="login-page">
+
+        <div class="login-box">
+
+            <div class="logo">
+                <div class="logo-circle">K</div>
+                <h1>Kiran Academy</h1>
+            </div>
+
+            <p class="login-subtitle">Student Portal</p>
+
+            <form id="loginForm">
+
+                <label>Student ID</label>
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Enter Student ID"
+                    required
+                >
+
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter Password"
+                    required
+                >
+
+                <button type="submit">Login</button>
+
+                <p id="loginError" class="error"></p>
+
+            </form>
+
+            <p class="demo">
+                Demo Login: <b>KA1001</b> / <b>1234</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <div id="dashboard" class="dashboard hidden">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="academy-logo">
+                <div class="small-logo">K</div>
+                <span>Kiran Academy</span>
+            </div>
+
+            <nav>
+
+                <button class="nav-btn active" onclick="showSection('home')">
+                    🏠 Dashboard
+                </button>
+
+                <button class="nav-btn" onclick="showSection('profile')">
+                    👤 Profile
+                </button>
+
+                <button class="nav-btn" onclick="showSection('classroom')">
+                    🏫 Classroom
+                </button>
+
+                <button class="nav-btn" onclick="showSection('attendance')">
+                    📅 Attendance
+                </button>
+
+                <button class="nav-btn" onclick="showSection('tests')">
+                    📝 Tests
+                </button>
+
+                <button class="nav-btn" onclick="showSection('performance')">
+                    📊 Performance
+                </button>
+
+            </nav>
+
+            <button class="logout-btn" onclick="logout()">
+                🚪 Logout
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header>
+
+                <div>
+                    <h2 id="pageTitle">Dashboard</h2>
+                    <p>Welcome back, Sarthak!</p>
+                </div>
+
+                <div class="student-mini">
+
+                    <div class="avatar">SD</div>
+
+                    <div>
+                        <strong>Sarthak Damle</strong>
+                        <small>Student</small>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= HOME ================= -->
+
+            <section id="home" class="section active-section">
+
+                <div class="welcome-card">
+
+                    <div>
+                        <h1>Welcome back, Sarthak 👋</h1>
+
+                        <p>
+                            Track your classes, attendance,
+                            tests and academic performance.
+                        </p>
+                    </div>
+
+                    <div class="welcome-icon">
+                        🎓
+                    </div>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+
+                <div class="stats">
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div>
+                            <p>Attendance</p>
+                            <h2>87%</h2>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div>
+                            <p>Tests Given</p>
+                            <h2>12</h2>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div>
+                            <p>Average Score</p>
+                            <h2>78%</h2>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div>
+                            <p>Rank</p>
+                            <h2>#08</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT TESTS -->
+
+                <div class="content-card">
+
+                    <div class="card-header">
+                        <h2>Recent Tests</h2>
+                        <button onclick="showSection('tests')">
+                            View All
+                        </button>
+                    </div>
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Test</th>
+                                <th>Subject</th>
+                                <th>Marks</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Unit Test 3</td>
+                                <td>Machine Learning</td>
+                                <td>42/50</td>
+                                <td>
+                                    <span class="badge success">
+                                        Passed
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Unit Test 2</td>
+                                <td>DBMS</td>
+                                <td>38/50</td>
+                                <td>
+                                    <span class="badge success">
+                                        Passed
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Unit Test 1</td>
+                                <td>NLP</td>
+                                <td>31/50</td>
+                                <td>
+                                    <span class="badge warning">
+                                        Average
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= PROFILE ================= -->
+
+            <section id="profile" class="section">
+
+                <div class="content-card">
+
+                    <h2>Student Profile</h2>
+
+                    <div class="profile">
+
+                        <div class="large-avatar">
+                            SD
+                        </div>
+
+                        <div class="profile-info">
+
+                            <h2>Sarthak Damle</h2>
+
+                            <p>
+                                <b>Student ID:</b> KA1001
+                            </p>
+
+                            <p>
+                                <b>Course:</b> Artificial Intelligence & Machine Learning
+                            </p>
+
+                            <p>
+                                <b>Year:</b> Third Year
+                            </p>
+
+                            <p>
+                                <b>Email:</b> sarthak@example.com
+                            </p>
+
+                            <p>
+                                <b>Batch:</b> AIML-2026
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= CLASSROOM ================= -->
+
+            <section id="classroom" class="section">
+
+                <h2 class="section-heading">
+                    My Classroom
+                </h2>
+
+                <div class="course-grid">
+
+                    <div class="course-card">
+
+                        <div class="course-icon">🤖</div>
+
+                        <h3>Machine Learning</h3>
+
+                        <p>
+                            Algorithms, supervised learning,
+                            unsupervised learning and model evaluation.
+                        </p>
+
+                        <span>Teacher: Prof. Sharma</span>
+
+                        <button>Open Classroom</button>
+
+                    </div>
+
+
+                    <div class="course-card">
+
+                        <div class="course-icon">🗄️</div>
+
+                        <h3>DBMS</h3>
+
+                        <p>
+                            SQL, normalization, transactions,
+                            concurrency and database design.
+                        </p>
+
+                        <span>Teacher: Prof. Patil</span>
+
+                        <button>Open Classroom</button>
+
+                    </div>
+
+
+                    <div class="course-card">
+
+                        <div class="course-icon">🧠</div>
+
+                        <h3>Natural Language Processing</h3>
+
+                        <p>
+                            NLP, N-grams, language models,
+                            POS tagging and PCFG.
+                        </p>
+
+                        <span>Teacher: Prof. Deshmukh</span>
+
+                        <button>Open Classroom</button>
+
+                    </div>
+
+
+                    <div class="course-card">
+
+                        <div class="course-icon">🌐</div>
+
+                        <h3>Web Technology</h3>
+
+                        <p>
+                            HTML, CSS, JavaScript and
+                            modern web development.
+                        </p>
+
+                        <span>Teacher: Prof. Joshi</span>
+
+                        <button>Open Classroom</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= ATTENDANCE ================= -->
+
+            <section id="attendance" class="section">
+
+                <h2 class="section-heading">
+                    Attendance
+                </h2>
+
+                <div class="attendance-main">
+
+                    <div class="attendance-circle">
+
+                        <div>
+                            <strong>87%</strong>
+                            <span>Overall</span>
+                        </div>
+
+                    </div>
+
+                    <div class="attendance-details">
+
+                        <h2>Attendance Summary</h2>
+
+                        <p>
+                            Total Classes:
+                            <b>120</b>
+                        </p>
+
+                        <p>
+                            Classes Attended:
+                            <b>104</b>
+                        </p>
+
+                        <p>
+                            Classes Missed:
+                            <b>16</b>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h2>Subject-wise Attendance</h2>
+
+                    <div class="attendance-row">
+
+                        <span>Machine Learning</span>
+
+                        <div class="progress">
+                            <div style="width:92%"></div>
+                        </div>
+
+                        <b>92%</b>
+
+                    </div>
+
+
+                    <div class="attendance-row">
+
+                        <span>DBMS</span>
+
+                        <div class="progress">
+                            <div style="width:85%"></div>
+                        </div>
+
+                        <b>85%</b>
+
+                    </div>
+
+
+                    <div class="attendance-row">
+
+                        <span>NLP</span>
+
+                        <div class="progress">
+                            <div style="width:82%"></div>
+                        </div>
+
+                        <b>82%</b>
+
+                    </div>
+
+
+                    <div class="attendance-row">
+
+                        <span>Web Technology</span>
+
+                        <div class="progress">
+                            <div style="width:90%"></div>
+                        </div>
+
+                        <b>90%</b>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= TESTS ================= -->
+
+            <section id="tests" class="section">
+
+                <h2 class="section-heading">
+                    Tests & Exams
+                </h2>
+
+                <div class="content-card">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Test Name</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Marks</th>
+                                <th>Result</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Unit Test 3</td>
+                                <td>Machine Learning</td>
+                                <td>25 Sep 2026</td>
+                                <td>42/50</td>
+                                <td>
+                                    <span class="badge success">
+                                        84%
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Unit Test 2</td>
+                                <td>DBMS</td>
+                                <td>18 Sep 2026</td>
+                                <td>38/50</td>
+                                <td>
+                                    <span class="badge success">
+                                        76%
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Unit Test 1</td>
+                                <td>NLP</td>
+                                <td>10 Sep 2026</td>
+                                <td>31/50</td>
+                                <td>
+                                    <span class="badge warning">
+                                        62%
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Practice Test</td>
+                                <td>Web Technology</td>
+                                <td>05 Sep 2026</td>
+                                <td>45/50</td>
+                                <td>
+                                    <span class="badge success">
+                                        90%
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= PERFORMANCE ================= -->
+
+            <section id="performance" class="section">
+
+                <h2 class="section-heading">
+                    Performance
+                </h2>
+
+
+                <div class="performance-grid">
+
+                    <div class="performance-card">
+
+                        <h3>Overall Score</h3>
+
+                        <h1>78%</h1>
+
+                        <p>Good Performance</p>
+
+                    </div>
+
+
+                    <div class="performance-card">
+
+                        <h3>Highest Score</h3>
+
+                        <h1>90%</h1>
+
+                        <p>Web Technology</p>
+
+                    </div>
+
+
+                    <div class="performance-card">
+
+                        <h3>Tests Completed</h3>
+
+                        <h1>12</h1>
+
+                        <p>Out of 14</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="content-card">
+
+                    <h2>Subject Performance</h2>
+
+                    <div class="performance-row">
+
+                        <span>Machine Learning</span>
+
+                        <div class="progress">
+                            <div style="width:84%"></div>
+                        </div>
+
+                        <b>84%</b>
+
+                    </div>
+
+
+                    <div class="performance-row">
+
+                        <span>DBMS</span>
+
+                        <div class="progress">
+                            <div style="width:76%"></div>
+                        </div>
+
+                        <b>76%</b>
+
+                    </div>
+
+
+                    <div class="performance-row">
+
+                        <span>NLP</span>
+
+                        <div class="progress">
+                            <div style="width:62%"></div>
+                        </div>
+
+                        <b>62%</b>
+
+                    </div>
+
+
+                    <div class="performance-row">
+
+                        <span>Web Technology</span>
+
+                        <div class="progress">
+                            <div style="width:90%"></div>
+                        </div>
+
+                        <b>90%</b>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
